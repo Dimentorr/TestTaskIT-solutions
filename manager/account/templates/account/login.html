@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}
+Главная
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block main_content %}
+    <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Вход</legend>
+                {{ form}}
+            </fieldset>
+            <div>
+                <button type="submit">Войти</button>
+            </div>
+        </form>
+        <div>
+            <small>
+                Нужен аккаунт? <a href="{% url 'register' %}">Регистрация</a>
+            </small>
+        </div>
+{% endblock %}
+
+{% block right_content %}
+
+{% endblock %}

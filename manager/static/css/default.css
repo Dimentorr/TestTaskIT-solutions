@@ -1,0 +1,53 @@
+:root {
+    --base-background-color: #afaaaa;
+}
+
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Times New Roman', sans-serif;
+    word-wrap: break-word;
+    margin: 0;
+    background-color: var(--base-background-color);
+    font-size: 1.5vh;
+    line-height: 1.5rem;
+}
+
+.header {
+    height: 10vh;
+    z-index: 10;
+    background-color: var(--base-background-color);
+    display: grid;
+    grid-template-columns: auto 20vw;
+}
+.path_for_user {
+    grid-column-start: 2;
+}
+
+
+.content {
+    display: grid;
+    grid-template-columns: 15vw auto 15vw;
+}
+.content_left {
+    grid-column-start: 1;
+}
+.content_center {
+    grid-column-start: 2;
+}
+.content_right {
+    grid-column-start: 3;
+}
+[class^='content_'] {
+    display: grid;
+    margin-top: 10vh;
+    justify-content: center;
+}
