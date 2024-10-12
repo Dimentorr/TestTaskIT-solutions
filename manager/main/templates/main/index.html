@@ -1,5 +1,9 @@
 {% extends 'main/base.html' %}
 {% load static %}
+{% block new_imports %}
+<link rel="stylesheet" href="{% static 'css/car.css' %}"/>
+{% endblock %}
+
 {% block title %}
 Главная
 {% endblock %}
@@ -8,10 +12,12 @@
 {% endblock %}
 
 {% block main_content %}
- <div>
-     Почувствуй всю сочность этих мягких булочек<br>
-     Познай радость от наших мягких круасанов и кофе!
- </div>
+<div>
+    <a class="block_on_main" href="">
+        <img class="img_on_block" src="{% static 'img/void.png'%}">
+        <span class="block_name">Toyota Camry</span>
+    </a>
+</div>
 {% endblock %}
 
 {% block right_content %}

@@ -21,17 +21,26 @@ body {
     line-height: 1.5rem;
 }
 
-.header {
-    height: 10vh;
-    z-index: 10;
-    background-color: var(--base-background-color);
-    display: grid;
-    grid-template-columns: auto 20vw;
-}
-.path_for_user {
-    grid-column-start: 2;
+.account_logo {
+    height: 5vh;
+    border-radius: 25px;
 }
 
+.header {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 80vw 20vw;
+}
+
+.header_place {
+    grid-column-start: 2;
+    height: 10vh;
+    z-index: 10;
+    position: fixed;
+}
+.path_for_user {
+    margin-top: 1vh;
+}
 
 .content {
     display: grid;
@@ -43,11 +52,15 @@ body {
 .content_center {
     grid-column-start: 2;
 }
+.cars {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
 .content_right {
     grid-column-start: 3;
 }
 [class^='content_'] {
     display: grid;
-    margin-top: 10vh;
     justify-content: center;
 }

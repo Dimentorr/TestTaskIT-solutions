@@ -1,0 +1,42 @@
+:root {
+  --default-block-background-color: #989898;
+  --hover-block-background-color: #ccc;
+}
+
+.block_on_main {
+  display: grid;
+  grid-template-rows: 10vw 3.5vw;
+  min-width: 200px;
+  min-height: 100px;
+  width: 20vw;
+  height: 13.5vw;
+  margin: 5px;
+  background-color: var(--default-block-background-color);
+  color: white;
+  border-radius: 20px;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--hover-block-background-color);
+    color: black;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.img_on_block {
+  grid-row-start: 1;
+  border-radius: 20px;
+  display: flex;
+  margin: 5px auto;
+  height: 10vw;
+  width: 15vw;
+}
+
+.block_name {
+  margin-top: 3px;
+  grid-row-start: 2;
+}
