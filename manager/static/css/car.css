@@ -27,6 +27,7 @@
 
 .block_on_main {
     display: grid;
+    height: 100%;
     grid-template-rows: 2.5vw 2vw auto;
     color: white;
     justify-content: center;

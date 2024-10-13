@@ -21,3 +21,7 @@ def car_info(request, car_id):
         'description_comment': description_comment,
     }
     return render(request, 'cars/info.html', context)
+
+
+def car_create(request):
+    pass

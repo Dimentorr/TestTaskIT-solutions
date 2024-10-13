@@ -1,0 +1,12 @@
+.div_for_img {
+    grid-row-start: 2;
+    margin: 0;
+    position: relative;
+    top: -1vw;
+    display: grid;
+}
+
+.img_add {
+    margin: auto;
+    height: 10vw;
+}

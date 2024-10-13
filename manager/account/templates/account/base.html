@@ -25,13 +25,8 @@
         </div>
         <div class="content_right">
             <div class="path_for_user">
-                {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">
-                    <img class="account_logo" src="{% static 'img/void_account.jpg'%}">
-                </a>
-                {% else %}
-                    <a class="button" href="{% url 'login' %}">Войти</a>
-                {% endif%}
+                <a class="button" href="{% url 'home' %}">Главная</a>
+                {% block add_button_right %}{% endblock %}
             </div>
             {% block right_content %}{% endblock %}
         </div>

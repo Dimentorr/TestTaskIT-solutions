@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import UserRegisterForm
+from cars.models import Car
 
 
 def register(request):
@@ -15,6 +16,7 @@ def register(request):
     return render(request, 'account/register.html', {'form': form})
 
 
-def user_login(request):
-    # Ваша логика входа пользователя
-    return render(request, 'account/login.html')
+def profile(request):
+    cars = Car.objects.filter(owner=request.user).all()
+    return render(request, 'account/account.html', {"cars": cars})
+    pass
