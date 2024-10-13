@@ -1,5 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
+
 {% block new_imports %}
 <link rel="stylesheet" href="{% static 'css/car.css' %}"/>
 {% endblock %}
@@ -12,12 +13,17 @@
 {% endblock %}
 
 {% block main_content %}
-<div>
-    <a class="block_on_main" href="">
-        <img class="img_on_block" src="{% static 'img/void.png'%}">
-        <span class="block_name">Toyota Camry</span>
-    </a>
-</div>
+    {% for i in cars %}
+    <div class="size_block_on_main">
+        <a class="block_on_main" href="{% url 'car_info' i.id %}">
+            <span class="in_block_name">{{ i }}</span>
+            {% if i.year %}
+                <p class="in_block_year">({{ i.year }})</p>
+            {% endif %}
+            <p class="in_block_description">{{ i.description|truncatechars:100 }}</p>
+        </a>
+    </div>
+    {% endfor %}
 {% endblock %}
 
 {% block right_content %}

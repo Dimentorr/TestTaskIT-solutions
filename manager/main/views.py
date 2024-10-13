@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from cars.models import Car
 
 
 def index(request):
-    return render(request, 'main/index.html')
+    cars = Car.objects.all()
+    return render(request, 'main/index.html', {'cars': cars})

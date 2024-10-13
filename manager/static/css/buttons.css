@@ -2,6 +2,8 @@
     --default-background-color: #e1caca;
     --hover-background-color: #67d646;
     --default-text-color: #090606;
+    --publication-commit-button-color: #4afb1c;
+    --hover-publication-commit-button-color: #1cfb63;
 }
 
 .button {
@@ -25,3 +27,23 @@
     }
 }
 
+.button_comment {
+    display: flex;
+    height: 2vw;
+    width: 8vw;
+    background-color: var(--publication-commit-button-color);
+    border: none;
+    border-radius: 15px;
+    color: var(--default-text-color);
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    &:hover {
+        background-color: var(--hover-publication-commit-button-color);
+    }
+    &:active {
+        transform: scale(0.98);
+    }
+}

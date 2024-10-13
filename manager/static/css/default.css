@@ -52,7 +52,7 @@ body {
 .content_center {
     grid-column-start: 2;
 }
-.cars {
+.main_content {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
