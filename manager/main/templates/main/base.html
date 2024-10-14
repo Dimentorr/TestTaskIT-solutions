@@ -29,6 +29,7 @@
                 <a href="{% url 'profile' %}">
                     <img class="account_logo" src="{% static 'img/void_account.jpg'%}">
                 </a>
+                {% block add_buttons_right %}{% endblock %}
                 {% else %}
                     <a class="button" href="{% url 'login' %}">Войти</a>
                 {% endif%}

@@ -13,7 +13,6 @@ html {
 }
 
 body {
-    font-family: 'Times New Roman', sans-serif;
     word-wrap: break-word;
     margin: 0;
     background-color: var(--base-background-color);

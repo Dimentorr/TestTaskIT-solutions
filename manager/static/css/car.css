@@ -57,3 +57,35 @@
     grid-row-start: 3;
     font-size: 1.2vw;
 }
+
+.form_create_car {
+    margin-top: 5vh;
+    display: grid;
+    height: 20vw;
+    width: 45vw;
+    grid-template-rows: 3vw 13vw 4vw;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: var(--default-block-background-color);
+}
+
+.car_create_main {
+    grid-row-start: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.car_create_main input {
+    margin-top: 1vw;
+    max-width: 25%;
+    height: 2vw;
+}
+
+.car_create_description textarea {
+    grid-row-start: 2;
+    margin: 15px auto;
+    border-radius: 5px;
+    height: 10vw;
+    width: 40vw;
+    resize:none;
+}

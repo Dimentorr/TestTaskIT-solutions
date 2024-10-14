@@ -1,0 +1,45 @@
+.size_edit_commit {
+    margin-top: 20vh;
+    display: grid;
+    grid-template-columns: auto 5vw;
+    border-radius: 15px;
+    /* цвет в car.css */
+    background-color: var(--default-block-background-color);
+    height: 15vw;
+}
+
+.main_information_edit_commit {
+    margin-left: 2vw;
+    grid-column-start: 1;
+    display: grid;
+    grid-template-rows: 2vw 10vw;
+
+}
+
+.commit_edit_buttons {
+    margin-left: 1vw;
+    margin-top: 4vw;
+    grid-column-start: 2;
+}
+
+.edit_commit_size_button {
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 25px;
+    border: none;
+    & img {
+        width: 2.5vw;
+        height: 2.5vw;
+        border-radius: 25px;
+    }
+    &:hover img {
+        scale: 0.80;
+    }
+}
+
+.car_edit_commit {
+    border-radius: 5px;
+    height: 10vw;
+    width: 30vw;
+    resize:none;
+}

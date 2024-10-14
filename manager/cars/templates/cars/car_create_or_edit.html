@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block new_imports %}
+<link rel="stylesheet" href="{% static 'css/car.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/car_info.css' %}"/>
+{% endblock %}
+
+{% block title %}
+Информация о машине
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block main_content %}
+<div>
+    <form method="post" class="form_create_car">
+        {% csrf_token %}
+        <input type="hidden" value="{{ user.id }}" name="user_id">
+        <div class="car_create_main">
+            <input type="text" placeholder="Марка машины" name="make" value="{{ make }}">
+            <input type="text" placeholder="Модель машины" name="model" value="{{ model }}">
+            <input type="number" placeholder="Год выпуска" name="year" value="{{ year }}">
+        </div>
+        <label class="car_create_description">
+            <textarea rows="10" placeholder="Описание к добавляемой машине" name="description">{{ description }}</textarea>
+        </label>
+        <input type="submit" name="{{ function }}" value="{{ function_name }}" class="car_create_button">
+    </form>
+
+    <div>
+        {{ errors }}
+    </div>
+</div>
+{% endblock %}
+
+{% block right_content %}
+
+{% endblock %}

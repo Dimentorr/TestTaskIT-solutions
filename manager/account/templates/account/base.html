@@ -25,7 +25,9 @@
         </div>
         <div class="content_right">
             <div class="path_for_user">
-                <a class="button" href="{% url 'home' %}">Главная</a>
+                <a href="{% url 'home' %}">
+                    <img class="account_logo" src="{% static 'img/home.png' %}">
+                </a>
                 {% block add_button_right %}{% endblock %}
             </div>
             {% block right_content %}{% endblock %}

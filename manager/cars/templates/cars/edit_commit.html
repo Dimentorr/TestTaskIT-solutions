@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block new_imports %}
+<link rel="stylesheet" href="{% static 'css/car.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/commit_edit.css' %}"/>
+{% endblock %}
+
+{% block title %}
+Информация о машине
+{% endblock %}
+
+{% block add_buttons_right %}
+<a href="{% url 'home' %}">
+    <img class="account_logo" src="{% static 'img/home.png' %}">
+</a>
+{% endblock %}
+
+{% block main_content %}
+<!--<div class="size_edit_commit">-->
+<!--                 <div class="main_information_edit_commit">-->
+<!--                     <span>{{ commit.author }}</span>-->
+<!--                     <textarea class="car_edit_commit" name="description">{{ commit.comment|linebreaksbr }}</textarea>-->
+<!--                 </div>-->
+                 {% if user == commit.author %}
+                 <form method="post" class="size_edit_commit">
+                     {% csrf_token %}
+                     <div class="main_information_edit_commit">
+                     <span>{{ commit.author }}</span>
+                     <textarea class="car_edit_commit" name="description">{{ commit.comment|linebreaksbr }}</textarea>
+                 </div>
+                     <div class="commit_edit_buttons">
+                         <input type="hidden" name="commit_id" value="{{ commit.id }}">
+                     <button class="edit_commit_size_button" type="submit" name="delete_commit" value="Удалить">
+                        <img src="{% static 'img/del.png' %}">
+                    </button>
+                    <button class="edit_commit_size_button" type="submit" name="edit_commit" value="Изменить">
+                        <img src="{% static 'img/edit.png' %}">
+                    </button>
+                     </div>
+                 </form>
+                 {% endif %}
+             </div>
+{% endblock %}
+
+{% block right_content %}
+
+{% endblock %}

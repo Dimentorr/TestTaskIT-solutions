@@ -10,30 +10,37 @@
 Информация о машине
 {% endblock %}
 
-{% block banner %}
+{% block add_buttons_right %}
+<a href="{% url 'home' %}">
+    <img class="account_logo" src="{% static 'img/home.png' %}">
+</a>
 {% endblock %}
 
 {% block main_content %}
 <div>
     <div class="page_info_size_block">
         <div class="info_header">
-            <h1>{{ car }}</h1>
-            {% if car.year %}
-                <span> ({{ car.year }}) </span>
+            <div class="first_column_info_header">
+                <h1>{{ car }}</h1>
+                {% if car.year %}
+                    <span> ({{ car.year }}) </span>
+                {% endif %}
+            </div>
+            {% if user == car.owner %}
+                <form class="second_column_info_header" method="post">
+                    {% csrf_token %}
+                    <button class="size_del" type="submit" name="delete" value="Удалить">
+                        <img src="{% static 'img/del.png' %}">
+                    </button>
+                    <button class="size_del" type="submit" name="edit" value="Изменить">
+                        <img src="{% static 'img/edit.png' %}">
+                    </button>
+                </form>
             {% endif %}
         </div>
-        <p>{{ car.description }}</p>
+        <p>{{ car.description|linebreaksbr }}</p>
     </div>
     <div class="page_comments_size_block">
-        {% for i in comments%}
-         <div class="comment_block">
-             <img class="avatar_comment" src="{% static 'img/void_account.jpg' %}">
-             <div class="main_information_comment">
-                 <span>{{ i.author }}</span>
-                 <p>{{ i.comment|linebreaksbr }}</p>
-             </div>
-         </div>
-        {% endfor %}
         {% if user.is_authenticated %}
         <form method="post" class="form_add_comment">
             {% csrf_token %}
@@ -44,6 +51,30 @@
             <input class="button_comment" type="submit" value="Опубликовать" name="send">
         </form>
         {% endif %}
+        {% for i in comments%}
+         <div class="comment_block">
+             <img class="avatar_comment" src="{% static 'img/void_account.jpg' %}">
+             <div class="size_information_comment">
+                 <div class="main_information_comment">
+                     <span>{{ i.author }}</span>
+                     <p>{{ i.comment|linebreaksbr }}</p>
+                 </div>
+                 {% if user == i.author %}
+                 <form method="post" class="comment_buttons">
+                     {% csrf_token %}
+                     {{ i.id }}
+                     <input type="hidden" name="commit_id" value="{{ i.id }}">
+                     <button class="size_del" type="submit" name="delete_commit" value="Удалить">
+                        <img src="{% static 'img/del.png' %}">
+                    </button>
+                    <button class="size_del" type="submit" name="edit_commit" value="Изменить">
+                        <img src="{% static 'img/edit.png' %}">
+                    </button>
+                 </form>
+                 {% endif %}
+             </div>
+         </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
