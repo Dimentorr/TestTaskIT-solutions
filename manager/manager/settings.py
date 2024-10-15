@@ -41,11 +41,24 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'rest_framework',
+    'rest_framework.authtoken',
     'account',
     'API',
     'cars',
-    'main'
+    'main',
 ]
+
+# REST_FRAMEWORK = {
+#        'DEFAULT_AUTHENTICATION_CLASSES': [
+#            'rest_framework.authentication.TokenAuthentication',
+#            'rest_framework.authentication.SessionAuthentication',
+#        ],
+#        'DEFAULT_PERMISSION_CLASSES': [
+#            'rest_framework.permissions.IsAuthenticated',
+#        ],
+#    }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +68,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost',
+    'https://localhost',
+    'http://127.0.0.1:8000',
+    'https://127.0.0.1:8000',
+)
 
 ROOT_URLCONF = 'manager.urls'
 
