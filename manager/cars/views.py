@@ -34,7 +34,6 @@ def commit(request, car_id):
 
 
 def send(request, car_id, author_id, commit):
-    print(1)
     new_comment = CarComments()
     new_comment.car = Car.objects.get(id=car_id)
     new_comment.author = User.objects.get(id=author_id)
@@ -61,15 +60,8 @@ def car_info(request, car_id):
             try:
                 if request.POST.get('send'):
                     if request.POST.get('comment'):
-                        # print(231233)
-                        # return redirect('car_commit_send', car_id,
-                        #                 request.user.id, request.POST.get('comment'))
-                        # TODO
-                        new_comment = CarComments()
-                        new_comment.car = Car.objects.get(id=car_id)
-                        new_comment.author = request.user
-                        new_comment.comment = request.POST.get('comment')
-                        new_comment.save()
+                        return redirect('car_commit_send', car_id=car_id,
+                                        author_id=request.user.id, commit=request.POST.get('comment'))
                     else:
                         return Exception
                 elif request.POST.get('delete'):
@@ -80,7 +72,6 @@ def car_info(request, car_id):
                 elif request.POST.get('edit'):
                     return redirect('car_update', car_id)
             except Exception as e:
-                print(e)
                 description_comment = 'Чтобы отправить коментарий ты должен что-нибудь написать!'
 
     comments = CarComments.objects.filter(car=selected_car).all()
@@ -134,7 +125,6 @@ def car_update(request, car_id):
                'year': car.year,
                'description': car.description}
     if request.method == 'POST' and request.POST.get('update_car'):
-        print('нажатие изменения')
         if errors := check_input_on_form(request):
             context['errors'] = errors
             return render(request, 'cars/car_create_or_edit.html', context)
