@@ -19,4 +19,3 @@ def register(request):
 def profile(request):
     cars = Car.objects.filter(owner=request.user).all()
     return render(request, 'account/account.html', {"cars": cars})
-    pass
