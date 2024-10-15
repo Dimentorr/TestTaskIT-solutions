@@ -1,12 +1,9 @@
 from django.shortcuts import redirect
 
-from rest_framework import generics, permissions, viewsets
-from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import permissions, viewsets
 from cars.models import Car, CarComments
 from .serializers import CarSerializer, CarCommentsSerializer
 
-from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 
 
