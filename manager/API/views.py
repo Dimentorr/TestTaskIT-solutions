@@ -26,8 +26,8 @@ class CommentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         car_id = self.kwargs['car_id']
-        car = Car.objects.get(pk=car_id)
-        serializer.save(car=car, owner=self.request.user)
+        comment = CarComments.objects.get(pk=car_id)
+        serializer.save(car=car_id, comment=comment, owner=self.request.user)
 
 
 def create_token(user):

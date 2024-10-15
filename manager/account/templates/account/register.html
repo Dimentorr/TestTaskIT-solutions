@@ -1,5 +1,10 @@
 {% extends 'account/base.html' %}
 {% load static %}
+
+{% block new_imports %}
+<link rel="stylesheet" href="{% static 'css/account.css' %}"/>
+{% endblock %}
+
 {% block title %}
 Регистрация
 {% endblock %}
@@ -9,11 +14,30 @@
 
 {% block main_content %}
 <div>
-    <h2>Регистрация</h2>
-    <form method="post">
+    <form method="post" class="reg_log_block">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Зарегистрироваться</button>
+        <div id="block_name">
+            <h2>Регистрация</h2>
+        </div>
+        <div class="username">
+            <p>Имя пользователя:</p>
+            {{ form.username }}
+        </div>
+        <div class="email">
+            <p>Почта:</p>
+            {{ form.email }}
+        </div>
+        <div class="password1">
+            <p>Пароль:</p>
+            {{ form.password1 }}
+        </div>
+        <div class="password2">
+            <p>Повторите пароль:</p>
+            {{ form.password2 }}
+        </div>
+        <div class="button_reg_log">
+            <button type="submit">Зарегистрироваться</button>
+        </div>
     </form>
 </div>
 {% endblock %}
